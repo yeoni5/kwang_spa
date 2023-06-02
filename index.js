@@ -2,7 +2,7 @@ $('#cv').click(function(){
     $.ajax({
         type: 'post',
         url: './cv.html',
-        dataType: 'html',
+        dataType: 'text',
         success: function(data){
             $('#cdDiv').html(data);
         }
