@@ -1,8 +1,8 @@
 $('#cv').click(function(){
     $.ajax({
-        type: 'post',
+        type: 'get',
         url: 'cv.html',
-        dataType: 'text',
+        dataType: 'html',
         success: function(data){
             $('#cdDiv').html(data);
         }
