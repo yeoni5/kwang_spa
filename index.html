@@ -54,9 +54,10 @@
 							<span class="image fit"><img src="images/pic02.jpg" alt="" /></span>
 							<h3>이광선 이력서</h3>
 							<ul class="actions special">
-								<li><a href="/home" class="button">이력서</a></li>
+								<li><a href="#" id="cv-link" class="button">이력서</a></li>
+								<li><a href="#" id="photo-link" class="button">사진</a></li>
 							</ul>
-							<p id="app"></p>
+							<div id="result"></div>
 						</div>
 						
 					</div>
@@ -70,8 +71,37 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			<script src="./index.js"></script>
-			<script src="./Cv.js"></script>
-
+			<script>
+				const cvLink = document.getElementById('cv-link');
+				const photoLink = document.getElementById('photo-link');
+				const resultElement = document.getElementById('result');
+			
+				cvLink.addEventListener('click', function(event) {
+					event.preventDefault();
+					// 이력서 클릭 이벤트 처리 로직
+					fetch("cv.html")
+						.then(response => response.text())
+						.then(data => {
+							resultElement.innerHTML = data;
+						})
+						.catch(error => {
+							console.error('Failed to load CV file:', error);
+						});
+				});
+			
+				photoLink.addEventListener('click', function(event) {
+					event.preventDefault();
+					// 사진 클릭 이벤트 처리 로직
+					fetch("photo.html")
+						.then(response => response.text())
+						.then(data => {
+							resultElement.innerHTML = data;
+						})
+						.catch(error => {
+							console.error('Failed to load PHOTO file:', error);
+						});
+				});
+			</script>
+			
 	</body>
 </html>
